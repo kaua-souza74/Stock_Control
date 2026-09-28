@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="72" viewBox="0 0 360 72" fill="none" role="img" aria-labelledby="title">
+  <title id="title">StockControl</title>
+  <rect x="2" y="2" width="68" height="68" rx="19" fill="#A60321"/>
+  <path d="M17 25 36 14l19 11v22L36 58 17 47V25Z" stroke="#F2E9D8" stroke-width="3.6" stroke-linejoin="round"/>
+  <path d="m17 25 19 11 19-11M36 36v22" stroke="#F2E9D8" stroke-width="3.6" stroke-linejoin="round"/>
+  <path d="M26 31v8m20-8v8M26 45v4m20-4v4" stroke="#F2E9D8" stroke-width="3.2" stroke-linecap="round"/>
+  <text x="87" y="46" fill="#34271F" font-family="Arial,sans-serif" font-size="27" font-weight="700" letter-spacing="-.8">Stock<tspan fill="#A60321">Control</tspan></text>
+  <text x="88" y="62" fill="#8C5C32" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="2.1">GESTÃO DE ESTOQUE</text>
+</svg>
