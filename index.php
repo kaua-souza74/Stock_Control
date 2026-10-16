@@ -131,7 +131,70 @@ $restoreScroll = $_SESSION['restore_scroll_y'] ?? null; unset($_SESSION['restore
 $reopenCommentsFor = (int)($_SESSION['reopen_comments_for'] ?? 0); unset($_SESSION['reopen_comments_for']);
 $today = (new DateTimeImmutable('now'))->format('d/m/Y');
 if (!$user) {
-?><!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#F2E9D8"><title>Entrar · StockControl</title><link rel="stylesheet" href="assets/style.css"></head><body class="login-page"><main class="login-card"><a class="brand login-brand" href="index.php"><img src="assets/stockcontrol-logo.svg" alt="StockControl"></a><p class="eyebrow">Gestão de estoque</p><h1>Bem-vindo de volta</h1><p class="muted">Entre com sua conta para acompanhar os produtos.</p><?php if ($message): ?><div class="toast-notice <?=e($message[1])?>" role="status" aria-live="polite"><?=e($message[0])?></div><?php endif; ?><form method="post" class="login-form"><input type="hidden" name="csrf" value="<?=e(csrf())?>"><input type="hidden" name="action" value="login"><label class="field">E-mail<input type="email" name="email" autocomplete="username" required placeholder="voce@empresa.com"></label><label class="field">Senha<input type="password" name="senha" autocomplete="current-password" required placeholder="Sua senha"></label><button class="button primary full-width">Entrar</button></form></main><script src="assets/navigation.js" defer></script></body></html><?php exit; }
+?><!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#A60321">
+    <title>Entrar · StockControl</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="login-page">
+    <main class="login-layout">
+        <section class="login-showcase" aria-label="Apresentação do StockControl">
+            <a class="login-showcase-brand" href="index.php" aria-label="StockControl, início">
+                <img src="assets/stockcontrol-logo.svg" alt="StockControl">
+            </a>
+            <div class="login-showcase-copy">
+                <p class="login-showcase-kicker"><span aria-hidden="true"></span> CONTROLE INTELIGENTE</p>
+                <h2>Seu estoque,<br><em>em boas mãos.</em></h2>
+                <p>Tenha clareza sobre seus produtos, acompanhe cada movimentação e mantenha tudo em ordem.</p>
+            </div>
+            <figure class="login-featured">
+                <img src="imagens/brigadeiro.webp" alt="Produto de demonstração do catálogo StockControl">
+                <figcaption><span>CATÁLOGO DE PRODUTOS</span><strong>Organizado. Atualizado. Acessível.</strong></figcaption>
+            </figure>
+            <p class="login-showcase-footer"><span aria-hidden="true">✳</span> Organização que acompanha o seu ritmo.</p>
+        </section>
+
+        <section class="login-panel" aria-labelledby="login-title">
+            <div class="login-content">
+                <p class="eyebrow login-eyebrow">ÁREA DE ACESSO</p>
+                <h1 id="login-title">Que bom ter você de volta.</h1>
+                <p class="login-intro">Entre com suas credenciais para acessar o StockControl.</p>
+
+                <?php if ($message): ?>
+                    <div class="toast-notice <?=e($message[1])?>" role="status" aria-live="polite"><?=e($message[0])?></div>
+                <?php endif; ?>
+
+                <form method="post" class="login-form">
+                    <input type="hidden" name="csrf" value="<?=e(csrf())?>">
+                    <input type="hidden" name="action" value="login">
+                    <label class="field login-field">E-mail
+                        <input type="email" name="email" autocomplete="username" required placeholder="voce@empresa.com">
+                    </label>
+                    <label class="field login-field">Senha
+                        <input type="password" name="senha" autocomplete="current-password" required placeholder="Digite sua senha">
+                    </label>
+                    <button class="button primary full-width login-submit">
+                        <span>Entrar na minha conta</span>
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </button>
+                </form>
+
+                <div class="login-security">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 2.9 8.1 7 10 4.1-1.9 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+                    <span>Acesso protegido para usuários cadastrados.</span>
+                </div>
+                <p class="login-panel-footer">© <?=date('Y')?> StockControl <span>·</span> Gestão de estoque</p>
+            </div>
+        </section>
+    </main>
+    <script src="assets/navigation.js" defer></script>
+</body>
+</html>
+<?php exit; }
 
 try {
     $pdo = db();
